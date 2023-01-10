@@ -90,6 +90,19 @@
                 "sellerName": "Jack ma",
                 "verified": true,
                 "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident nihil fugit incidunt possimus animi in praesentium nemo, nesciunt alias reiciendis!"
+            },
+            {
+                "id": 1,
+                "name": "Wooden Double Size Bed (Only Bed)",
+                "resalePrice": 230,
+                "location": "Dhaka,1220",
+                "originalPrice": 500,
+                "productUrl": "https://www.partexfurniture.com/media/catalog/product/cache/9495e3e4e5201d64c55336974a3c64a7/d/i/ditf-a-09_1.jpg",
+                "used": 3,
+                "postDate": "12-2-2022",
+                "sellerName": "Jack ma",
+                "verified": true,
+                "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident nihil fugit incidunt possimus animi in praesentium nemo, nesciunt alias reiciendis!"
             }
         ]
     },
