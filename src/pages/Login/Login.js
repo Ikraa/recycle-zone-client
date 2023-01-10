@@ -69,7 +69,7 @@ const Login = () => {
                 <select
                   name="accountType"
                   onChange={handleChange}
-                  className="w-full"
+                  className="w-full pl-[20px]"
                   id="cars"
                 >
                   <option value="seller">Seller</option>
