@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
+import CategoryItems from "./pages/CategoryItems";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
-import Navbar from "./Shared/Navbar/Navbar";
 
 function App() {
   const routeLink = createBrowserRouter([
@@ -17,6 +17,10 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/category/:id",
+      element: <CategoryItems />,
     },
   ]);
   return (

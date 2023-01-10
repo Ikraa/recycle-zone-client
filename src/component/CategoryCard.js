@@ -29,24 +29,25 @@
 
 // export default CategoryCard;
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Category.modules.css";
-const CategoryCard = () => {
+const CategoryCard = ({ item }) => {
+  const navigate = useNavigate();
   return (
     <div class="a-box">
       <div class="img-container">
         <div class="img-inner">
           <div class="inner-skew">
-            <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" />
+            <img alt="" src={item?.url} />
           </div>
         </div>
       </div>
       <div class="text-container">
-        <h3>A blue bird</h3>
-        <div>
-          This a demo experiment to skew image container. It looks good.
-        </div>
+        <h3>{item?.name}</h3>
+        <div>{item?.desc}</div>
         <div className="flex justify-end mt-10">
           <button
+            onClick={() => navigate(`/category/${item?.id}`)}
             className="py-2 px-4 common-bg text-white font-bold uppercase rounded-[4px]
 
           "

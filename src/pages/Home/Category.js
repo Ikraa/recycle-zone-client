@@ -15,7 +15,7 @@ const Category = () => {
       </h1>
       <div className="category-card common-bg grid grid-cols-3 gap-3 py-16 px-8">
         {category?.map((item, i) => (
-          <CategoryCard />
+          <CategoryCard item={item} key={i} />
         ))}
       </div>
     </div>
