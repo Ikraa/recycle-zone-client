@@ -1,10 +1,14 @@
 import React from "react";
 import Navbar from "../../Shared/Navbar/Navbar";
+import Category from "./Category";
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
+      <Category />
     </div>
   );
 };

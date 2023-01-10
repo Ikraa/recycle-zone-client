@@ -14,4 +14,14 @@
     background: #eaf6f6;
   /* background: url("https://img.freepik.com/free-vector/white-abstract-background-design_23-2148825582.jpg?w=2000") */
   }
+
+
+
+  .common-text-color{
+    color: #f76b8a;
+  }
+  .common-bg{
+    background: #f76b8a;
+    /* padding: 30px 20px; */
+  }
   
