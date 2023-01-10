@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
 import Navbar from "./Shared/Navbar/Navbar";
 
 function App() {
@@ -8,6 +9,14 @@ function App() {
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "/home",
+      element: <Home />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
   ]);
   return (

@@ -1,0 +1,17 @@
+/* for login in component  */
+.common-bg{
+    background: #B4B6CD;
+  }
+  
+  .login-button{
+    border-radius: 0 0 15px 15px;
+  }
+  .ln-form{
+    box-shadow: 0 8px 12px -5px #e1e1e7;
+    z-index: 10000;
+  }
+  .login-background{
+    background: #334155;
+  /* background: url("https://img.freepik.com/free-vector/white-abstract-background-design_23-2148825582.jpg?w=2000") */
+  }
+  

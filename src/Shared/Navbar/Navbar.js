@@ -50,9 +50,8 @@ const Navbar = () => {
           </span>
           <span className="text-gray-900  font-bold">
             <Link
-              to="/"
+              to="/login"
               className="hover:bg-black duration-300 transition-all text-[11px]  rounded-[3px] text-[#f76b8a] mr-[10px] px-3 py-1 bg-[#eaf6f6]"
-              href="/home"
             >
               Login
             </Link>
