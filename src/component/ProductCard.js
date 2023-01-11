@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import { useFormik } from "formik";
+import React from "react";
 import "./Product.modules.css";
-import Modal from "react-modal";
+
 const ProductCard = ({ item }) => {
-  const [showModal, setShowModal] = useState(false);
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      width: "500px",
-      height: "500px",
+  const { handleChange, values } = useFormik({
+    initialValues: {
+      userName: "safasf",
+      email: "sfsaf",
+      mettingLocation: "",
+      itemName: item?.name,
+      productPrice: item?.resalePrice,
+      phone: "",
     },
-  };
+  });
+  console.log(values);
   return (
     <>
       <div class="card">
@@ -64,19 +63,101 @@ const ProductCard = ({ item }) => {
 
       <input type="checkbox" id="my-modal-6" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg">
-            Congratulations random Internet user!
-          </h3>
-          <p class="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
+        <div class="modal-box  p-5 custom-scroll">
           <div class="modal-action">
-            <label for="my-modal-6" class="btn">
-              Yay!
+            <label for="my-modal-6" class="btn btn-xs bg-red-600">
+              Close
             </label>
           </div>
+          <h3 class="font-bold text-lg">Book This Product !</h3>
+          <form>
+            <div className="mx-2">
+              <label className="text-black text-[14px] mb-2 inline-block">
+                User Name:
+              </label>
+              <input
+                name="userName"
+                placeholder="Name"
+                onChange={handleChange}
+                readOnly
+                disabled={true}
+                value={values.userName}
+                type="text"
+                className="w-full outline-none text-gray-800 border border-[1px solid bg-gray-500] pl-[10px] py-2  rounded-[3px]"
+              />
+            </div>
+            <div className="mx-2">
+              <label className="text-black text-[14px] mb-2 inline-block">
+                Email Address:
+              </label>
+              <input
+                name="email"
+                placeholder="email"
+                value={values.email}
+                type="text"
+                readOnly
+                disabled={true}
+                className="w-full outline-none text-gray-800 border border-[1px solid bg-gray-500] pl-[10px] py-2  rounded-[3px]"
+              />
+            </div>
+            <div className="mx-2">
+              <label className="text-black text-[14px] mb-2 inline-block">
+                Item Name:
+              </label>
+              <input
+                name="itemName"
+                placeholder="Product Name"
+                value={values?.itemName}
+                readOnly
+                disabled={true}
+                type="text"
+                className="w-full outline-none text-gray-800 border border-[1px solid bg-gray-500] pl-[10px] py-2  rounded-[3px]"
+              />
+            </div>
+            <div className="mx-2">
+              <label className="text-black text-[14px] mb-2 inline-block">
+                Product Price:
+              </label>
+              <input
+                name="productPrice"
+                placeholder="text"
+                readOnly
+                disabled={true}
+                value={values.productPrice}
+                type="text"
+                className="w-full outline-none text-gray-800 border border-[1px solid bg-gray-500] pl-[10px] py-2  rounded-[3px]"
+              />
+            </div>
+            <div className="mx-2">
+              <label className="text-black text-[14px] mb-2 inline-block">
+                Phone:
+              </label>
+              <input
+                name="phone"
+                placeholder="Phone"
+                onChange={handleChange}
+                value={values.phone}
+                type="text"
+                className="w-full outline-none text-gray-800 border border-[1px solid bg-gray-500] pl-[10px] py-2  rounded-[3px]"
+              />
+            </div>
+            <div className="mx-2">
+              <label className="text-black text-[14px] mb-2 inline-block">
+                Meeting Location:
+              </label>
+              <input
+                name="mettingLocation"
+                placeholder="Location"
+                onChange={handleChange}
+                value={values.mettingLocation}
+                type="text"
+                className="w-full outline-none text-gray-800 border border-[1px solid bg-gray-500] pl-[10px] py-2  rounded-[3px]"
+              />
+            </div>
+            <button className="btn btn-sm mt-3 mx-2" type="submit">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </>

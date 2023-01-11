@@ -24,4 +24,38 @@
     background: #f76b8a;
     /* padding: 30px 20px; */
   }
+
+
+
+
+
+  .custom-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* Track */
+  .custom-scroll::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px rgb(217, 203, 203); */
+    border-radius: 15px;
+    background-color: #c57cb3 !important;
+  }
+  
+  /* Handle */
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: #3d3a3c !important;
+    border-radius: 15px;
+  }
+  
+  /* Handle on hover */
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #be2899;
+  }
+  
+  .sidebar-container-scroll {
+    background: #615e60;
+    padding: 10px 4px;
+    height: 90vh;
+    bottom: 0;
+    margin-left: 20px;
+  }
   
