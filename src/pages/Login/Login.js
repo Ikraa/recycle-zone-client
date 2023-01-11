@@ -1,10 +1,22 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
-
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import auth from "../../firebase/firebase.config";
 const Login = () => {
   const [newUser, setNewUser] = useState(false);
-  const { errors, values, handleReset, handleSubmit, handleChange } = useFormik(
-    {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, logInuser, logINloading, logInerror] =
+    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+  const navigate = useNavigate();
+  const { errors, values, handleReset, resetForm, handleSubmit, handleChange } =
+    useFormik({
       enableReinitialize: true,
       initialValues: {
         name: "",
@@ -13,7 +25,17 @@ const Login = () => {
         accountType: "user",
       },
       onSubmit: (values) => {
-        console.log(values);
+        if (newUser) {
+          createUserWithEmailAndPassword(values.email, values.password).then(
+            (res) => navigate("/")
+          );
+          resetForm();
+        } else {
+          signInWithEmailAndPassword(values.email, values.password).then(
+            (res) => navigate("/")
+          );
+          resetForm();
+        }
       },
       validate: (values) => {
         let errors = {};
@@ -32,10 +54,15 @@ const Login = () => {
 
         return errors;
       },
-    }
-  );
-  console.log(values);
-
+    });
+  if (loading || logINloading) {
+    return;
+  }
+  let errorItem;
+  if (error || logInerror) {
+    errorItem = <p>{error.message}</p>;
+  }
+  console.log(user);
   return (
     <div className="min-h-screen login-background flex items-center justify-center lg:px-1 flex-col px-4 ">
       <form className="bg-[#B4B6CD] ln-form  min-h-[300px] h-auto lg:w-[400px] w-full  rounded-[30px] p-10   flex items-center justify-center">
@@ -130,15 +157,33 @@ const Login = () => {
               {newUser ? "Log In" : "Sign Up"}
             </strong>
           </p>
+          <p className="text-[12px] text-center text-gray-900 font-semibold">
+            <button
+              type="button"
+              onClick={handleSubmit}
+              className="bg-white w-[150px] py-2 login-button text-gray-900 mb-2 hover:bg-gray-900 hover:text-white font-bold"
+            >
+              {newUser ? "Sign Up" : "Log In"}
+            </button>{" "}
+            <br />
+            <button
+              type="button"
+              onClick={() => {
+                signInWithGoogle().then((res) => {
+                  if (res.user) {
+                    navigate("/");
+                  }
+                });
+              }}
+              className="bg-white w-[150px] py-2 login-button text-gray-900 hover:bg-gray-900 hover:text-white font-bold"
+            >
+              G
+            </button>
+          </p>
         </div>
       </form>
-      <button
-        type="button"
-        onClick={handleSubmit}
-        className="common-bg w-[250px] py-2 login-button text-gray-900 hover:bg-gray-900 hover:text-white font-bold"
-      >
-        {newUser ? "Sign Up" : "Log In"}
-      </button>
+
+      {errorItem}
     </div>
   );
 };

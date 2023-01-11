@@ -1,12 +1,15 @@
 import { useFormik } from "formik";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../firebase/firebase.config";
 import "./Product.modules.css";
 
 const ProductCard = ({ item }) => {
+  const [user, loading] = useAuthState(auth);
   const { handleChange, values } = useFormik({
     initialValues: {
-      userName: "safasf",
-      email: "sfsaf",
+      userName: user.displayName,
+      email: user.email,
       mettingLocation: "",
       itemName: item?.name,
       productPrice: item?.resalePrice,
