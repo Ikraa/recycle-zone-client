@@ -65,7 +65,7 @@
 }
 
 .category-wrapper .category-container .card .box:hover {
-  transform: translateY(-50px);
+  /* transform: translateY(-50px); */
 }
 
 .category-wrapper .category-container .card .box:before {
