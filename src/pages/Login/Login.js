@@ -4,6 +4,7 @@ import {
   useCreateUserWithEmailAndPassword,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase/firebase.config";
@@ -11,10 +12,13 @@ const Login = () => {
   const [newUser, setNewUser] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+
   const [signInWithEmailAndPassword, logInuser, logINloading, logInerror] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+  const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
   const navigate = useNavigate();
+
   const { errors, values, handleReset, resetForm, handleSubmit, handleChange } =
     useFormik({
       enableReinitialize: true,
@@ -24,15 +28,29 @@ const Login = () => {
         password: "",
         accountType: "user",
       },
-      onSubmit: (values) => {
+      onSubmit: async (values) => {
+        const data = {
+          email: values.email,
+          accountType: values.accountType,
+          admin: false,
+        };
         if (newUser) {
-          createUserWithEmailAndPassword(values.email, values.password).then(
-            (res) => navigate("/")
+          const res = await createUserWithEmailAndPassword(
+            values.email,
+            values.password
           );
-          resetForm();
+          const upRes = await updateProfile({ displayName: values.name });
+          if (res.user && upRes) {
+            saveUserHandle(data);
+            navigate("/");
+
+            resetForm();
+          }
         } else {
           signInWithEmailAndPassword(values.email, values.password).then(
-            (res) => navigate("/")
+            (res) => {
+              navigate("/");
+            }
           );
           resetForm();
         }
@@ -62,7 +80,31 @@ const Login = () => {
   if (error || logInerror) {
     errorItem = <p>{error.message}</p>;
   }
-  console.log(user);
+  const saveUserHandle = (data) => {
+    fetch("http://localhost:4000/user", {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
+  // handle google sign in
+  const handleGoogleSignIn = () => {
+    signInWithGoogle().then((res) => {
+      if (res.user) {
+        saveUserHandle({
+          email: res?.user?.email,
+          accountType: values.accountType,
+          admin: false,
+        });
+        navigate("/");
+      }
+    });
+  };
   return (
     <div className="min-h-screen login-background flex items-center justify-center lg:px-1 flex-col px-4 ">
       <form className="bg-[#B4B6CD] ln-form  min-h-[300px] h-auto lg:w-[400px] w-full  rounded-[30px] p-10   flex items-center justify-center">
@@ -168,13 +210,7 @@ const Login = () => {
             <br />
             <button
               type="button"
-              onClick={() => {
-                signInWithGoogle().then((res) => {
-                  if (res.user) {
-                    navigate("/");
-                  }
-                });
-              }}
+              onClick={handleGoogleSignIn}
               className="bg-white w-[150px] py-2 login-button text-gray-900 hover:bg-gray-900 hover:text-white font-bold"
             >
               G

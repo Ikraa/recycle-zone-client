@@ -1,9 +1,18 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Outlet } from "react-router-dom";
+import auth from "../../firebase/firebase.config";
+import useAccountType from "../../hooks/useAccountType";
 import Navbar from "../../Shared/Navbar/Navbar";
-// import Navbar from "../components/Navbar";
 
 const Dashboard = () => {
+  const [user, loading] = useAuthState(auth);
+  const { userCheck } = useAccountType(user?.email);
+  console.log(userCheck, "user type");
+  if (loading) {
+    return;
+  }
+
   const linkCss =
     "bg-white text-[#f76b8a] font-semibold text-[12px] mb-2 rounded-[6px]";
   return (
@@ -18,24 +27,35 @@ const Dashboard = () => {
         <div class="drawer-side ">
           <label for="my-drawer-2" class="drawer-overlay"></label>
           <ul class="menu p-4 w-80  bg-[#f76b8a]">
-            <li className={linkCss}>
-              <a>My Orders</a>
-            </li>
-            <li className={linkCss}>
-              <a>Add A Product</a>
-            </li>
-            <li className={linkCss}>
-              <a>My Products</a>
-            </li>
-            <li className={linkCss}>
-              <a>My Buyers</a>
-            </li>
-            <li className={linkCss}>
-              <a>All Sellers</a>
-            </li>
-            <li className={linkCss}>
-              <a>Reported Items</a>
-            </li>
+            {userCheck?.isUser && (
+              <li className={linkCss}>
+                <a>My Orders</a>
+              </li>
+            )}
+            {userCheck?.isSeller && (
+              <>
+                <li className={linkCss}>
+                  <a>Add A Product</a>
+                </li>
+                <li className={linkCss}>
+                  <a>My Products</a>
+                </li>
+                <li className={linkCss}>
+                  <a>My Buyers</a>
+                </li>
+              </>
+            )}
+            {userCheck?.isAdmin && (
+              <>
+                {" "}
+                <li className={linkCss}>
+                  <a>All Sellers</a>
+                </li>
+                <li className={linkCss}>
+                  <a>Reported Items</a>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
