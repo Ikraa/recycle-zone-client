@@ -11,7 +11,7 @@ const Navbar = () => {
   }
   return (
     <>
-      <div className="bg-[#f76b8a] min-h-[60px] flex items-center px-8">
+      <div className="bg-[#f76b8a] min-h-[60px] flex justify-between items-center px-8">
         <ul className="flex flex-wrap  items-center ">
           <span className="text-gray-900  font-bold">
             <Link
@@ -98,6 +98,9 @@ const Navbar = () => {
             </>
           )}
         </ul>
+        <div className="hidden lg:block">
+          <h1 className="text-white text-2xl">Recycle Zone</h1>
+        </div>
         <label
           for="my-drawer-2"
           class="btn btn-primary drawer-button lg:hidden"
