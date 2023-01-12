@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import ProductCard from "../component/ProductCard";
 import Navbar from "../Shared/Navbar/Navbar";
 
 const CategoryItems = () => {
-  const { id } = useParams();
-  const [products, setProducts] = useState({});
-  useEffect(() => {
-    fetch("../Category.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const findCategory = data?.find((dt) => dt.id === +id);
-        if (findCategory) {
-          setProducts(findCategory);
-        }
-      });
-  }, []);
+  // const { id } = useParams();
+  // const [products, setProducts] = useState({});
+  const products = useLoaderData();
+  // console.log(data, "lodar");
+  // useEffect(() => {
+  //   fetch("../Category.json")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const findCategory = data?.find((dt) => dt.id === +id);
+  //       if (findCategory) {
+  //         setProducts(findCategory);
+  //       }
+  //     });
+  // }, []);
 
   return (
     <div>

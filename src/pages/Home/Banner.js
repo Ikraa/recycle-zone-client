@@ -17,7 +17,10 @@ const Banner = () => {
           <svg class="cirle-d" height="60" width="60">
             <circle cx="30" cy="30" r="30" />
           </svg>
-          <img src="https://i.pinimg.com/originals/f2/d1/f9/f2d1f900f688ddca0765ec8e2d3900e1.png" />
+          <img
+            className="banner-img"
+            src="https://i.pinimg.com/originals/f2/d1/f9/f2d1f900f688ddca0765ec8e2d3900e1.png"
+          />
           <div class="col-xs-12">
             <p className="paragraph-tag">
               Live Sites using our WordPress Themes

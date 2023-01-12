@@ -6,30 +6,34 @@ import "./Product.modules.css";
 
 const ProductCard = ({ item }) => {
   const [user, loading] = useAuthState(auth);
+
   const { handleChange, values } = useFormik({
     initialValues: {
-      userName: user.displayName,
-      email: user.email,
+      userName: user?.displayName,
+      email: user?.email,
       mettingLocation: "",
       itemName: item?.name,
       productPrice: item?.resalePrice,
       phone: "",
     },
   });
-  console.log(values);
+  if (loading) {
+    return;
+  }
   return (
     <>
       <div class="card">
         <div class="box">
           <div class="content">
-            <h2>{item?.id}</h2>
             <img
-              className="w-[200px] h-[200px] mx-auto"
+              className="w-[100px] h-[100px] mx-auto"
               src={
                 "https://stylesatlife.com/wp-content/uploads/2018/05/Beautiful-Bedroom-Furniture-Designs.jpg"
               }
               alt=""
             />
+            <h2>{item?.id}</h2>
+
             <h4 className="text-white my-2 text-2xl text-start">
               {item?.name}
             </h4>
@@ -44,7 +48,7 @@ const ProductCard = ({ item }) => {
               User:{item?.used} Years
             </h6>
             <h5 className="text-start text-2xl text-white">
-              Post Date:{item?.postDate}
+              Post Date:{new Date(item?.postDate).toDateString()}
             </h5>
             <p className="text-start ">
               Seller: {item?.sellerName}{" "}

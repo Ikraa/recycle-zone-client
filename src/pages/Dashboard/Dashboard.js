@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import auth from "../../firebase/firebase.config";
 import useAccountType from "../../hooks/useAccountType";
 import Navbar from "../../Shared/Navbar/Navbar";
@@ -35,7 +35,7 @@ const Dashboard = () => {
             {userCheck?.isSeller && (
               <>
                 <li className={linkCss}>
-                  <a>Add A Product</a>
+                  <Link to={"/dashboard/addproduct"}>Add A Product</Link>
                 </li>
                 <li className={linkCss}>
                   <a>My Products</a>

@@ -47,7 +47,7 @@ const CategoryCard = ({ item }) => {
         <div>{item?.desc}</div>
         <div className="flex justify-end mt-10">
           <button
-            onClick={() => navigate(`/category/${item?.id}`)}
+            onClick={() => navigate(`/category/${item?._id}`)}
             className="py-2 px-4 common-bg text-white font-bold uppercase rounded-[4px]
 
           "

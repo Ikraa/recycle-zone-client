@@ -99,11 +99,11 @@
   a.more-link:hover {
     background-color: rgba(255, 255, 255, 0.50);
   }
-  svg, img {
+  svg, .banner-img {
     fill: rgba(0, 0, 0, 0.1);
     position: absolute;
   }
-  img {
+  .banner-img {
     max-width : 50%;
   }
   .cirle-a {
@@ -122,7 +122,7 @@
     top: 195px;
         right: 145px;
   }
-  img {
+  .banner-img {
     top: 0;
     right: 0;
   }

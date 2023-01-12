@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import CategoryItems from "./pages/CategoryItems";
+import AddProduct from "./pages/Dashboard/Seller/AddProduct";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import WelcomePage from "./pages/Dashboard/WelcomePage";
 import Home from "./pages/Home/Home";
@@ -11,10 +12,21 @@ function App() {
     {
       path: "/",
       element: <Home />,
+
+      loader: async () => {
+        return fetch("http://localhost:4000/category").then((res) =>
+          res.json()
+        );
+      },
     },
     {
       path: "/home",
       element: <Home />,
+      loader: async () => {
+        return fetch("http://localhost:4000/category").then((res) =>
+          res.json()
+        );
+      },
     },
     {
       path: "/login",
@@ -23,6 +35,11 @@ function App() {
     {
       path: "/category/:id",
       element: <CategoryItems />,
+      loader: async ({ params }) => {
+        return fetch(`http://localhost:4000/category/${params.id}`).then(
+          (res) => res.json()
+        );
+      },
     },
     {
       path: "/dashboard",
@@ -31,6 +48,10 @@ function App() {
         {
           index: true,
           element: <WelcomePage />,
+        },
+        {
+          path: "addproduct",
+          element: <AddProduct />,
         },
       ],
     },
