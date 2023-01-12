@@ -83,7 +83,7 @@ const Login = () => {
     errorItem = <p>{error.message}</p>;
   }
   const saveUserHandle = (data) => {
-    fetch("http://localhost:4000/user", {
+    fetch("https://recyclezone.vercel.app/user", {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",

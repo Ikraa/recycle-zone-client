@@ -13,6 +13,7 @@ import PrivateRoute from "./pages/Login/PrivateRoute";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Notfound from "./pages/Notfound";
+import Blog from "./pages/Blog/Blog";
 function App() {
   const routeLink = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ function App() {
       element: <Home />,
 
       loader: async () => {
-        return fetch("http://localhost:4000/category").then((res) =>
+        return fetch("https://recyclezone.vercel.app/category").then((res) =>
           res.json()
         );
       },
@@ -29,7 +30,7 @@ function App() {
       path: "/home",
       element: <Home />,
       loader: async () => {
-        return fetch("http://localhost:4000/category").then((res) =>
+        return fetch("https://recyclezone.vercel.app/category").then((res) =>
           res.json()
         );
       },
@@ -39,6 +40,10 @@ function App() {
       element: <Login />,
     },
     {
+      path: "/blog",
+      element: <Blog />,
+    },
+    {
       path: "/category/:id",
       element: (
         <PrivateRoute>
@@ -46,9 +51,9 @@ function App() {
         </PrivateRoute>
       ),
       loader: async ({ params }) => {
-        return fetch(`http://localhost:4000/category/${params.id}`).then(
-          (res) => res.json()
-        );
+        return fetch(
+          `https://recyclezone.vercel.app/category/${params.id}`
+        ).then((res) => res.json());
       },
     },
     {

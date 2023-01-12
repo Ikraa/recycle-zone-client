@@ -8,8 +8,8 @@ const MyProducts = () => {
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["myproduct"],
     queryFn: () =>
-      fetch(`http://localhost:4000/product/${user?.email}`).then((res) =>
-        res.json()
+      fetch(`https://recyclezone.vercel.app/product/${user?.email}`).then(
+        (res) => res.json()
       ),
   });
   if (isLoading || loading) {

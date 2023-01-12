@@ -23,7 +23,7 @@ const ProductCard = ({ item }) => {
         userName: user?.displayName,
       };
 
-      fetch("http://localhost:4000/book", {
+      fetch("https://recyclezone.vercel.app/book", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

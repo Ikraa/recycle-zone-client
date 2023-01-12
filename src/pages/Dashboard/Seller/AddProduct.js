@@ -30,7 +30,7 @@ const AddProduct = () => {
         postDate: new Date(),
         status: true,
       };
-      fetch("http://localhost:4000/addproduct", {
+      fetch("https://recyclezone.vercel.app/addproduct", {
         method: "PATCH",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

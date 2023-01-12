@@ -2,7 +2,7 @@ import React from "react";
 
 const UsersRow = ({ item, i, refetch }) => {
   const handleDelete = () => {
-    fetch(`http://localhost:4000/buyers/${item?._id}`, {
+    fetch(`https://recyclezone.vercel.app/buyers/${item?._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
