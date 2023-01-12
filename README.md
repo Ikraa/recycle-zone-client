@@ -1,6 +1,6 @@
 # Recyle Zone
 
-This multipage website made with (client side by) * React, Nodejs, Tailwind CSS, Daisy Ui, firabase and (server made by) expressJs, mongoDb etc.
+This multipage website made with (client side by) *React, Nodejs, Tailwind CSS, Daisy Ui, firabase and (server made by) expressJs, mongoDb etc.
 
 ### Live Demo of this website :
 [Live site link](https://recycle-zone-dec97.web.app/)
