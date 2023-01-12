@@ -17,6 +17,7 @@ const AddProduct = () => {
       productUrl: "",
       desc: "",
       used: "",
+      category: "Beds",
     },
     onSubmit: (values) => {
       const data = {
@@ -24,6 +25,7 @@ const AddProduct = () => {
         email: user?.email,
         sellerName: user?.displayName,
         postDate: new Date(),
+        status: true,
       };
       fetch("http://localhost:4000/addproduct", {
         method: "PATCH",
@@ -119,6 +121,7 @@ const AddProduct = () => {
             </label>
             <select
               name="category"
+              value={values.category}
               onChange={handleChange}
               style={{ border: "1px solid gray" }}
               className="w-full pl-[20px] py-2 mt-2 outline-none"

@@ -22,21 +22,9 @@ const Blog = () => {
               <b>Ans:</b>
             </span>
             <ul className="list-disc">
-              <li>
-                <b>S</b>QL is the programming language used to interface with
-                relational databases. NoSQL is a class of DBMs that are
-                non-relational and generally do not use SQL.
-              </li>
-              <li>
-                SQL is the Vertically Scalable. And NonSQL is the Horizontally
-                scalable.
-              </li>
-              <li>
-                SQL example are: MySQL, PostgreSQL, Oracle, MS-SQL Server, etc.
-                <br />
-                But NonSQL example are: MongoDB, GraphQL, HBase, Neo4j,
-                Cassandra, etc.
-              </li>
+              <li>Hook.</li>
+              <li></li>
+              <li></li>
             </ul>
           </h1>
         </div>

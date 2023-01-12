@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import WelcomePage from "./pages/Dashboard/WelcomePage";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
+import MyProducts from "./pages/Dashboard/Seller/MyProducts";
 
 function App() {
   const routeLink = createBrowserRouter([
@@ -52,6 +53,10 @@ function App() {
         {
           path: "addproduct",
           element: <AddProduct />,
+        },
+        {
+          path: "myproduct",
+          element: <MyProducts />,
         },
       ],
     },
