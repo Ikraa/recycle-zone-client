@@ -31,6 +31,7 @@ const Login = () => {
       onSubmit: async (values) => {
         const data = {
           email: values.email,
+
           accountType: values.accountType,
           admin: false,
         };
@@ -41,7 +42,7 @@ const Login = () => {
           );
           const upRes = await updateProfile({ displayName: values.name });
           if (res.user && upRes) {
-            saveUserHandle(data);
+            saveUserHandle({ ...data, name: res?.user?.displayName });
             navigate("/");
 
             resetForm();
@@ -98,6 +99,7 @@ const Login = () => {
       if (res.user) {
         saveUserHandle({
           email: res?.user?.email,
+          name: res?.user?.displayName,
           accountType: values.accountType,
           admin: false,
         });

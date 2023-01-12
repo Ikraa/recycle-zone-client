@@ -49,7 +49,10 @@ const Dashboard = () => {
               <>
                 {" "}
                 <li className={linkCss}>
-                  <a>All Sellers</a>
+                  <Link to="/dashboard/allsellers">All Sellers</Link>
+                </li>
+                <li className={linkCss}>
+                  <Link to="/dashboard/allbuyers">All Buyers</Link>
                 </li>
                 <li className={linkCss}>
                   <a>Reported Items</a>

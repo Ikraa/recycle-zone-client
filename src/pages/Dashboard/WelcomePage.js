@@ -11,7 +11,7 @@ const WelcomePage = () => {
       <h1 className="text-3xl font-bold common-text-color">
         Welcome to{" "}
         {(userCheck?.isAdmin && "Admin") ||
-          (userCheck?.isUser && "Admin") ||
+          (userCheck?.isUser && "Buyer") ||
           (userCheck?.isSeller && "Seller")}{" "}
         dashboar
       </h1>
