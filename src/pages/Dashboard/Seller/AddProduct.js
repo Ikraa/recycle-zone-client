@@ -1,10 +1,13 @@
 import { useFormik } from "formik";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../../firebase/firebase.config";
 
 const AddProduct = () => {
   const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
   const { handleChange, values, handleSubmit } = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -35,7 +38,10 @@ const AddProduct = () => {
         body: JSON.stringify(data),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          toast.success("Product added successfully");
+          navigate("/dashboard/myproduct");
+        });
     },
   });
 
@@ -66,7 +72,7 @@ const AddProduct = () => {
             </label>
             <input
               name="resalePrice"
-              placeholder="Price"
+              placeholder="Relase Price"
               value={values.resalePrice}
               onChange={handleChange}
               type="text"
@@ -145,7 +151,7 @@ const AddProduct = () => {
             </label>
             <input
               name="originalPrice"
-              placeholder="Location"
+              placeholder="Original Price"
               onChange={handleChange}
               value={values.originalPrice}
               type="text"

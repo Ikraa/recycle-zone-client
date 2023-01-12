@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
+import Advertise from "./Advertise";
 import Banner from "./Banner";
 import Category from "./Category";
 
@@ -15,6 +16,7 @@ const Home = () => {
         <Banner />
       </header>
       <Category category={category} />
+      <Advertise />
       <Footer />
     </div>
   );

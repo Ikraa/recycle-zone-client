@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-[#f76b8a] min-h-[60px] flex items-center px-8">
-        <ul className="flex items-center ">
+        <ul className="flex flex-wrap  items-center ">
           <span className="text-gray-900  font-bold">
             <Link
               to="/"
@@ -67,11 +67,6 @@ const Navbar = () => {
                   Login
                 </Link>
               </span>
-              {/* <span className="text-gray-900  ">
-                <a className=" mr-[10px] px-3 py-1 text-white" href="/home">
-                  |
-                </a>
-              </span> */}
             </>
           )}
           {user && (
@@ -103,6 +98,12 @@ const Navbar = () => {
             </>
           )}
         </ul>
+        <label
+          for="my-drawer-2"
+          class="btn btn-primary drawer-button lg:hidden"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </label>
       </div>
     </>
   );

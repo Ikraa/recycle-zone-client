@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import auth from "../firebase/firebase.config";
 import "./Product.modules.css";
 
@@ -31,7 +32,7 @@ const ProductCard = ({ item }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          alert("Success...");
+          toast.success("Item  booked successfully..");
           setShow(false);
         });
     },
@@ -162,6 +163,7 @@ const ProductCard = ({ item }) => {
                 </label>
                 <input
                   name="phone"
+                  required
                   placeholder="Phone"
                   onChange={handleChange}
                   value={values.phone}
@@ -174,6 +176,7 @@ const ProductCard = ({ item }) => {
                   Meeting Location:
                 </label>
                 <input
+                  required
                   name="mettingLocation"
                   placeholder="Location"
                   onChange={handleChange}

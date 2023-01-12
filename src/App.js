@@ -9,7 +9,10 @@ import Login from "./pages/Login/Login";
 import MyProducts from "./pages/Dashboard/Seller/MyProducts";
 import AllSellers from "./pages/Dashboard/admin/AllSellers";
 import AllBuyers from "./pages/Dashboard/admin/AllBuyers";
-
+import PrivateRoute from "./pages/Login/PrivateRoute";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Notfound from "./pages/Notfound";
 function App() {
   const routeLink = createBrowserRouter([
     {
@@ -37,7 +40,11 @@ function App() {
     },
     {
       path: "/category/:id",
-      element: <CategoryItems />,
+      element: (
+        <PrivateRoute>
+          <CategoryItems />
+        </PrivateRoute>
+      ),
       loader: async ({ params }) => {
         return fetch(`http://localhost:4000/category/${params.id}`).then(
           (res) => res.json()
@@ -46,7 +53,11 @@ function App() {
     },
     {
       path: "/dashboard",
-      element: <Dashboard />,
+      element: (
+        <PrivateRoute>
+          <Dashboard />
+        </PrivateRoute>
+      ),
       children: [
         {
           index: true,
@@ -70,6 +81,10 @@ function App() {
         },
       ],
     },
+    {
+      path: "*",
+      element: <Notfound />,
+    },
   ]);
   return (
     <>
@@ -79,6 +94,7 @@ function App() {
           fallbackElement={<h1>Loading...</h1>}
         />
       }
+      <ToastContainer />
     </>
   );
 }

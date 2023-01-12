@@ -31,6 +31,7 @@ const MyProducts = () => {
                 <th>Price</th>
                 <th>location</th>
                 <th>Status</th>
+                <th>Advertise</th>
                 <th className="text-center">Action</th>
               </tr>
             </thead>

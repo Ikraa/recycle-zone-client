@@ -6,7 +6,7 @@ import {
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase/firebase.config";
 const Login = () => {
   const [newUser, setNewUser] = useState(false);
@@ -18,7 +18,8 @@ const Login = () => {
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
   const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const form = location?.state?.from?.pathname || "/";
   const { errors, values, handleReset, resetForm, handleSubmit, handleChange } =
     useFormik({
       enableReinitialize: true,
@@ -43,14 +44,14 @@ const Login = () => {
           const upRes = await updateProfile({ displayName: values.name });
           if (res.user && upRes) {
             saveUserHandle({ ...data, name: res?.user?.displayName });
-            navigate("/");
+            navigate(form, { replace: true });
 
             resetForm();
           }
         } else {
           signInWithEmailAndPassword(values.email, values.password).then(
             (res) => {
-              navigate("/");
+              navigate(form, { replace: true });
             }
           );
           resetForm();
@@ -103,7 +104,7 @@ const Login = () => {
           accountType: values.accountType,
           admin: false,
         });
-        navigate("/");
+        navigate(form, { replace: true });
       }
     });
   };
