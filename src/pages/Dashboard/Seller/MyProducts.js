@@ -8,7 +8,7 @@ const MyProducts = () => {
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["myproduct"],
     queryFn: () =>
-      fetch(`https://recyclezone.vercel.app/product/${user?.email}`).then(
+      fetch(`https://recycle-zone.onrender.com/product/${user?.email}`).then(
         (res) => res.json()
       ),
   });

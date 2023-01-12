@@ -5,7 +5,7 @@ const Advertise = () => {
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["advertise"],
     queryFn: () =>
-      fetch(`https://recyclezone.vercel.app/advertise`).then((res) =>
+      fetch(`https://recycle-zone.onrender.com/advertise`).then((res) =>
         res.json()
       ),
   });

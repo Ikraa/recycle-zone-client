@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const ProductRow = ({ item, i, refetch }) => {
   const handleDelete = () => {
     fetch(
-      `https://recyclezone.vercel.app/product/${item?.primaryKey}?category=${item?.category}`,
+      `https://recycle-zone.onrender.com/product/${item?.primaryKey}?category=${item?.category}`,
       {
         method: "PATCH",
       }
@@ -16,7 +16,7 @@ const ProductRow = ({ item, i, refetch }) => {
   };
 
   const handleRunAd = () => {
-    fetch("https://recyclezone.vercel.app/advertise", {
+    fetch("https://recycle-zone.onrender.com/advertise", {
       method: "POST",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -34,7 +34,7 @@ const ProductRow = ({ item, i, refetch }) => {
   };
 
   const handleRemoveAdd = () => {
-    fetch(`https://recyclezone.vercel.app/advertise/${item._id}`, {
+    fetch(`https://recycle-zone.onrender.com/advertise/${item._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

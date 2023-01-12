@@ -14,9 +14,8 @@ const Category = ({ category }) => {
         Product Category
       </h1>
       <div className="category-card common-bg grid lg:grid-cols-3 gap-3 py-16 lg:px-8">
-        {category?.map((item, i) => (
-          <CategoryCard item={item} key={i} />
-        ))}
+        {category.length > 0 &&
+          category?.map((item, i) => <CategoryCard item={item} key={i} />)}
       </div>
     </div>
   );

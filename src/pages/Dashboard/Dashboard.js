@@ -28,7 +28,7 @@ const Dashboard = () => {
           <ul class="menu p-4 w-80  bg-[#f76b8a]">
             {userCheck?.isUser && (
               <li className={linkCss}>
-                <a>My Orders</a>
+                <Link to="/dashboard/myorder">My Orders</Link>
               </li>
             )}
             {userCheck?.isSeller && (

@@ -22,9 +22,7 @@ const Banner = () => {
             src="https://i.pinimg.com/originals/f2/d1/f9/f2d1f900f688ddca0765ec8e2d3900e1.png"
           />
           <div class="col-xs-12">
-            <p className="paragraph-tag">
-              Live Sites using our WordPress Themes
-            </p>
+            <p className="paragraph-tag">Welcome to our Recycle Zone site...</p>
             <a
               target="_blank"
               href="https://www.silocreativo.com/en/showcase/"

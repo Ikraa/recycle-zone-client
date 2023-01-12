@@ -83,7 +83,7 @@ const Login = () => {
     errorItem = <p>{error.message}</p>;
   }
   const saveUserHandle = (data) => {
-    fetch("https://recyclezone.vercel.app/user", {
+    fetch("https://recycle-zone.onrender.com/user", {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",

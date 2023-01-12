@@ -23,7 +23,7 @@ const ProductCard = ({ item }) => {
         userName: user?.displayName,
       };
 
-      fetch("https://recyclezone.vercel.app/book", {
+      fetch("https://recycle-zone.onrender.com/book", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -46,7 +46,7 @@ const ProductCard = ({ item }) => {
         <div class="box">
           <div class="content">
             <img
-              className="w-[100px] h-[100px] mx-auto"
+              className="w-[200px] h-[200px] mx-auto"
               src={
                 "https://stylesatlife.com/wp-content/uploads/2018/05/Beautiful-Bedroom-Furniture-Designs.jpg"
               }

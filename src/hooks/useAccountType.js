@@ -5,7 +5,7 @@ const useAccountType = (email) => {
   const [userCheck, setUserCheck] = useState({});
   useEffect(() => {
     if (email) {
-      fetch(`https://recyclezone.vercel.app/admin/${email}`)
+      fetch(`https://recycle-zone.onrender.com/admin/${email}`)
         .then((res) => res.json())
         .then((data) => setUserCheck(data));
     }

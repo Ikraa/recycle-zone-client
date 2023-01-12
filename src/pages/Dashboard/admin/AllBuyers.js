@@ -6,7 +6,9 @@ const AllBuyers = () => {
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["allusers"],
     queryFn: () =>
-      fetch(`https://recyclezone.vercel.app/buyers`).then((res) => res.json()),
+      fetch(`https://recycle-zone.onrender.com/buyers`).then((res) =>
+        res.json()
+      ),
   });
   if (isLoading) {
     return;

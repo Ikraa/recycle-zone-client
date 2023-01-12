@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Notfound from "./pages/Notfound";
 import Blog from "./pages/Blog/Blog";
+import MyOrder from "./pages/Dashboard/user/MyOrder";
 function App() {
   const routeLink = createBrowserRouter([
     {
@@ -21,7 +22,7 @@ function App() {
       element: <Home />,
 
       loader: async () => {
-        return fetch("https://recyclezone.vercel.app/category").then((res) =>
+        return fetch("https://recycle-zone.onrender.com/category").then((res) =>
           res.json()
         );
       },
@@ -30,7 +31,7 @@ function App() {
       path: "/home",
       element: <Home />,
       loader: async () => {
-        return fetch("https://recyclezone.vercel.app/category").then((res) =>
+        return fetch("https://recycle-zone.onrender.com/category").then((res) =>
           res.json()
         );
       },
@@ -52,7 +53,7 @@ function App() {
       ),
       loader: async ({ params }) => {
         return fetch(
-          `https://recyclezone.vercel.app/category/${params.id}`
+          `https://recycle-zone.onrender.com/category/${params.id}`
         ).then((res) => res.json());
       },
     },
@@ -83,6 +84,14 @@ function App() {
         {
           path: "allbuyers",
           element: <AllBuyers />,
+        },
+        {
+          path: "allbuyers",
+          element: <AllBuyers />,
+        },
+        {
+          path: "myorder",
+          element: <MyOrder />,
         },
       ],
     },
