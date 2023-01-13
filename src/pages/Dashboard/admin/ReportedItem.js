@@ -1,6 +1,6 @@
 import React from "react";
 
-const MyOrder = () => {
+const ReportedItem = () => {
   return (
     <div>
       <h1 className="text-xl font-semibold ">Coming soon .....</h1>
@@ -8,4 +8,4 @@ const MyOrder = () => {
   );
 };
 
-export default MyOrder;
+export default ReportedItem;

@@ -42,7 +42,7 @@ const ProductCard = ({ item }) => {
   }
   return (
     <>
-      <div class="card">
+      <div class="card container">
         <div class="box">
           <div class="content">
             <img

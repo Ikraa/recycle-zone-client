@@ -14,7 +14,7 @@ const CategoryItems = () => {
       </h1>
 
       <div>
-        <div className="category-wrapper">
+        <div className="category-wrapper overflow-hidden">
           <div class="category-container">
             {products?.product?.map((item, i) => (
               <ProductCard item={item} />

@@ -15,6 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Notfound from "./pages/Notfound";
 import Blog from "./pages/Blog/Blog";
 import MyOrder from "./pages/Dashboard/user/MyOrder";
+import MyBuyers from "./pages/Dashboard/Seller/MyBuyers";
+import ReportedItem from "./pages/Dashboard/admin/ReportedItem";
 function App() {
   const routeLink = createBrowserRouter([
     {
@@ -92,6 +94,14 @@ function App() {
         {
           path: "myorder",
           element: <MyOrder />,
+        },
+        {
+          path: "mybuyers",
+          element: <MyBuyers />,
+        },
+        {
+          path: "reporteditem",
+          element: <ReportedItem />,
         },
       ],
     },

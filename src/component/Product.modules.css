@@ -26,7 +26,7 @@
 
 .category-wrapper .category-container .card {
   position: relative;
-  min-width: 420px;
+  min-width: 400px;
   min-height: 670px;
   height: auto;
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),

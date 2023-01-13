@@ -1,11 +1,12 @@
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useLocation } from "react-router-dom";
 import auth from "../../firebase/firebase.config";
 
 const Navbar = () => {
   const [user, loading] = useAuthState(auth);
+  const [isToggle, setIsToggle] = useState(false);
   const { pathname } = useLocation();
 
   if (loading) {
@@ -14,7 +15,22 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-[#f76b8a] min-h-[60px] flex justify-between items-center px-8">
-        <ul className="flex flex-wrap  items-center ">
+        <span className="lg:hidden" onClick={() => setIsToggle(!isToggle)}>
+          <i class="fa-solid fa-bars cursor-pointer"></i>
+        </span>
+        <ul
+          className={`${
+            isToggle
+              ? " h-screen w-[200px] z-50 common-bg flex flex-col justify-center items-center  fixed top-0 left-0"
+              : "lg:flex flex-wrap hidden   items-center "
+          }`}
+        >
+          <i
+            onClick={() => setIsToggle(!isToggle)}
+            class="fa-sharp md:hidden fa-solid fa-xmark cursor-pointer bg-white h-6 w-6 fixed left-[30px] top-[30px] flex items-center justify-center"
+          ></i>
+
+          {/* <ul className="lg:flex flex-wrap hidden   items-center "> */}
           <span className="text-gray-900  font-bold">
             <Link
               to="/"
@@ -43,20 +59,6 @@ const Navbar = () => {
             </a>
           </span>
 
-          <span className="text-gray-900  font-bold">
-            <Link
-              to="/"
-              className="hover:bg-black duration-300 transition-all text-[11px]  rounded-[3px] text-[#f76b8a] mr-[10px] px-3 py-1 bg-[#eaf6f6]"
-              href="/home"
-            >
-              About
-            </Link>
-          </span>
-          <span className="text-gray-900  ">
-            <a className=" mr-[10px] px-3 py-1 text-white" href="/home">
-              |
-            </a>
-          </span>
           {!user && (
             <>
               {" "}
@@ -99,7 +101,7 @@ const Navbar = () => {
             </>
           )}
         </ul>
-        <div className="hidden lg:block">
+        <div className="block">
           <h1 className="text-white text-2xl">Recycle Zone</h1>
         </div>
         {pathname.includes("dashboard") && (

@@ -8,7 +8,7 @@ const Blog = () => {
       <h1 className="text-2xl underline text-center mt-5">
         <b>Question & Answer</b>
       </h1>
-      <div className="shadow-xl mx-40 card-body">
+      <div className="shadow-xl lg:mx-40 card-body">
         <div className="mt-2 mb-2 ml-4">
           <h1>
             <span className="text-xl mb-3">
@@ -28,7 +28,7 @@ const Blog = () => {
           </h1>
         </div>
       </div>
-      <div className="shadow-xl mx-40 mt-3 card-body">
+      <div className="shadow-xl lg:mx-40 mt-3 card-body">
         <h1>
           <span className="text-xl text-bold">
             <b>2.Question:</b>
@@ -44,7 +44,7 @@ const Blog = () => {
           object can inherit the properties and methods of another object.
         </h1>
       </div>
-      <div className="shadow-xl mx-40 mt-3 card-body">
+      <div className="shadow-xl lg:mx-40 mt-3 card-body">
         <h1>
           <span className="text-xl text-bold">
             <b>3.Question:</b>
@@ -62,7 +62,7 @@ const Blog = () => {
           regression testing. They easily detect code smells in our codebase.
         </h1>
       </div>
-      <div className="shadow-xl mx-40 mt-3 card-body mb-8">
+      <div className="shadow-xl lg:mx-40 mt-3 card-body mb-8">
         <h1>
           <span className="text-xl text-bold">
             <b>4.Question:</b>
