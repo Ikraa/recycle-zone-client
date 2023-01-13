@@ -5,6 +5,7 @@ import Navbar from "../../Shared/Navbar/Navbar";
 import Advertise from "./Advertise";
 import Banner from "./Banner";
 import Category from "./Category";
+import PhotoGallary from "./PhotoGallary";
 
 const Home = () => {
   const category = useLoaderData();
@@ -17,6 +18,7 @@ const Home = () => {
       </header>
       <Category category={category} />
       <Advertise />
+      <PhotoGallary />
       <Footer />
     </div>
   );
