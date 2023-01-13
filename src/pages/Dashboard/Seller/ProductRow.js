@@ -26,9 +26,9 @@ const ProductRow = ({ item, i, refetch }) => {
       .then((res) => res.json())
       .then((data) => {
         if (!data.status) {
-          return toast.error("Ad already running");
+          return toast.error(data.message);
         } else {
-          toast.success("Ad Running successfully..");
+          toast.success(data.message);
         }
       });
   };

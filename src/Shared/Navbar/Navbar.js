@@ -1,11 +1,13 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import auth from "../../firebase/firebase.config";
 
 const Navbar = () => {
   const [user, loading] = useAuthState(auth);
+  const { pathname } = useLocation();
+
   if (loading) {
     return;
   }
@@ -100,12 +102,14 @@ const Navbar = () => {
         <div className="hidden lg:block">
           <h1 className="text-white text-2xl">Recycle Zone</h1>
         </div>
-        <label
-          for="my-drawer-2"
-          class="btn btn-primary drawer-button lg:hidden"
-        >
-          <i class="fa-solid fa-bars"></i>
-        </label>
+        {pathname.includes("dashboard") && (
+          <label
+            for="my-drawer-2"
+            class="btn btn-primary drawer-button lg:hidden"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </label>
+        )}
       </div>
     </>
   );

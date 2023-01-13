@@ -20,13 +20,15 @@ const Advertise = () => {
           Advertise
         </h1>
 
-        <div className="common-bg py-10 px-8 grid lg:grid-cols-3">
+        <div className="common-bg py-10 px-8 grid lg:grid-cols-3 gap-3">
           {data?.map((itm) => (
             <div class="card  bg-base-100 shadow-xl">
               <div class="card-body">
                 <h2 class="card-title">{itm?.name}</h2>
                 <p>
-                  {itm?.desc?.length > 50 ? itm?.desc?.slice(0, 50) : itm?.desc}
+                  {itm?.description?.length > 50
+                    ? itm?.description?.slice(0, 50)
+                    : itm?.description}
                 </p>
               </div>
               <figure>

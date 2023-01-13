@@ -47,9 +47,7 @@ const ProductCard = ({ item }) => {
           <div class="content">
             <img
               className="w-[200px] h-[200px] mx-auto"
-              src={
-                "https://stylesatlife.com/wp-content/uploads/2018/05/Beautiful-Bedroom-Furniture-Designs.jpg"
-              }
+              src={item?.productUrl}
               alt=""
             />
             <h2>{item?.id}</h2>
@@ -57,25 +55,34 @@ const ProductCard = ({ item }) => {
             <h4 className="text-white my-2 text-2xl text-start">
               {item?.name}
             </h4>
-            <p className="text-start text-gray-500">{item?.description}</p>
-            <h6 className="text-start text-white text-2xl mt-2">
-              Original Price:${item?.originalPrice}
-            </h6>
-            <h6 className="text-start text-2xl text-white">
-              Resale Price:{item?.resalePrice}
-            </h6>
-            <h6 className="text-start text-2xl text-white">
-              User:{item?.used} Years
-            </h6>
-            <h5 className="text-start text-2xl text-white">
-              Post Date:{new Date(item?.postDate).toDateString()}
-            </h5>
-            <p className="text-start ">
-              Seller: {item?.sellerName}{" "}
+            <p className="text-start text-sm text-gray-500">
+              {item?.description?.length > 100
+                ? item?.description?.slice(0, 100) + "..."
+                : item?.description}
+            </p>
+            <p className="text-start mt-2">
+              <strong>Seller:</strong> {item?.sellerName}{" "}
               {item?.verified && (
                 <i class="fa-solid fa-check bg-blue-600 text-white p-[2px] rounded-full"></i>
               )}
             </p>
+            <h6 className="text-start text-2xl text-white">
+              Resale Price: ${item?.resalePrice}
+            </h6>
+            <h6 className="text-start text-gray-500 mt-2">
+              <small>Original Price: ${item?.originalPrice}</small>
+            </h6>
+
+            <h6 className="text-start  text-gray-500">
+              <small>User: {item?.used} Years</small>
+            </h6>
+
+            <h5 className="text-start  text-gray-500">
+              <small>
+                {" "}
+                Post Date:{new Date(item?.postDate).toDateString()}
+              </small>
+            </h5>
             <div className="mt-10">
               <label
                 className="common-bg px-8 py-2 text-white cursor-pointer rounded-[5px] "

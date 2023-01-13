@@ -18,7 +18,7 @@ const AddProduct = () => {
       location: "",
       originalPrice: "",
       productUrl: "",
-      desc: "",
+      description: "",
       used: "",
       category: "Beds",
     },
@@ -192,10 +192,10 @@ const AddProduct = () => {
               Description:
             </label>
             <textarea
-              name="desc"
+              name="description"
               placeholder="Description"
               onChange={handleChange}
-              value={values.desc}
+              value={values.description}
               rows="4"
               type="text"
               className="w-full outline-none text-gray-800 border border-[1px solid bg-gray-500] pl-[10px] py-2  rounded-[3px]"
