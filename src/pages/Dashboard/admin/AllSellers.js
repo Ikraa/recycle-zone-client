@@ -17,7 +17,7 @@ const AllSellers = () => {
     <div className="mx-4">
       <h1 className="underline text-lg">All Sellers:</h1>
       <div className="table-responsive">
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto h-[450px] custom-scroll">
           <table class="table table-compact w-full">
             <thead>
               <tr>
