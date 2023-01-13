@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-[#f76b8a] min-h-[60px] flex justify-between items-center px-8">
-        <span className="lg:hidden" onClick={() => setIsToggle(!isToggle)}>
+        <span className="md:hidden" onClick={() => setIsToggle(!isToggle)}>
           <i class="fa-solid fa-bars cursor-pointer"></i>
         </span>
         <ul
