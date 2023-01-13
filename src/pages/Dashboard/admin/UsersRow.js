@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const UsersRow = ({ item, i, refetch }) => {
   const handleDelete = () => {
@@ -7,6 +8,7 @@ const UsersRow = ({ item, i, refetch }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        toast.success("Deleted successfully....");
         refetch();
       });
   };

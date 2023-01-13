@@ -11,6 +11,7 @@ const ProductRow = ({ item, i, refetch }) => {
     )
       .then((res) => res.json())
       .then((data) => {
+        toast.success("Deleted successfully....");
         refetch();
       });
   };
